@@ -1,0 +1,14 @@
+influencer(penny,10).
+influencer(mary,2).
+influencer(john,5).
+likes(john,mary).
+likes(john,penny).
+likes(penny,wine).
+likes(mary,juice).
+likes_(X,Y) :- influencer(X,O),
+               influencer(H,N),
+               likes(X,H),
+               likes(H,Y),
+               N > O.
+
+

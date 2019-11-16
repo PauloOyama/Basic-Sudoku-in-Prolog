@@ -1,0 +1,18 @@
+bigel(N,[N]).
+bigel(N,[H|T]) :- bigel(N1,T),N1>=H,N is N1,!;
+                    bigel(N1,T),H>N1 ,N is H,!.
+fat(0,1).
+fat(N,F) :- N>0,M is N-1,fat(M,R),F is N*R,!.
+
+
+member(X,[X|_]).
+member(X,[_|Y]) :- member(X,Y).
+diff(X,H) :- X =\= H.
+sumk([H|T],K):- member(X,T),diff(X,H),X is K - H,sumk(T,K).
+
+/*
+ member(X,[X|_]).
+ member(X,[_|Y]) :- member(X,Y).
+ somaPar([H|T], K) :- C is K - H, member(C, T);
+                      somaPar(T, K), !.
+*/
